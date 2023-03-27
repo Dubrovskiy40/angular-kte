@@ -1,0 +1,12 @@
+header {
+
+  &__logo {
+    font-size: 32px;
+    color: #fff;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-around;
+  }
+}

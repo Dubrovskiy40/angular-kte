@@ -1,9 +1,16 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ContactsListService {
 
-  constructor() { }
+  constructor(
+    private readonly http: HttpClient,
+  ) { }
+
+  public getContactsList() {
+    this.http
+      .get('https://reqres.in/api/users?per_page=12/')
+      .subscribe((data) => console.log('data',data));
+  }
 }

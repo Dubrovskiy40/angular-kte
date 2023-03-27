@@ -14,6 +14,8 @@ import {MainPageModule} from "./modules/main-page/main-page.module";
 import {ContactAddModule} from "./modules/contact-add/contact-add.module";
 import {ContactsListModule} from "./modules/contacts-list/contacts-list.module";
 import {ContactModule} from "./modules/contact/contact.module";
+import {CoreModule} from "./modules/core/core.module";
+import {NzLayoutModule} from "ng-zorro-antd/layout";
 
 registerLocaleData(en);
 
@@ -32,6 +34,9 @@ registerLocaleData(en);
     ContactsListModule,
     ContactAddModule,
     ContactModule,
+    CoreModule,
+    NzLayoutModule,
+
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

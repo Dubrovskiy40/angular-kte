@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ContactsListService} from "./contacts-list.service";
 
 @Component({
   selector: 'app-contacts-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./contacts-list.component.scss']
 })
 export class ContactsListComponent {
-
+  constructor(
+    private readonly contactsListService: ContactsListService,
+  ) {
+    this.contactsListService.getContactsList();
+  }
 }
