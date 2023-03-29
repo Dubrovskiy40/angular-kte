@@ -1,0 +1,23 @@
+//@import "colors";
+//@import "mixins";
+
+:host {
+  flex-grow: 1;
+  display: flex;
+  margin: 0 24px 0 24px;
+  background-color: #BFBFBF;
+  border-radius: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex: 1;
+
+  &__title {
+    box-sizing: border-box;
+    margin-right: auto;
+    //@include font_32_700;
+  }
+}

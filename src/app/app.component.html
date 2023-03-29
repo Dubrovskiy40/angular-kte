@@ -1,7 +1,6 @@
-<nz-header>
-  <app-header></app-header>
-</nz-header>
-<nz-content>
-  <router-outlet></router-outlet>
-  <ng-content></ng-content>
-</nz-content>
+<app-header></app-header>
+<main class="page-container">
+  <app-sidenav>
+    <router-outlet></router-outlet>
+  </app-sidenav>
+</main>

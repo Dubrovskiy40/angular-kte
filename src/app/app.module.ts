@@ -6,16 +6,15 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NotFoundModule} from "./modules/not-found/not-found.module";
-import {MainPageModule} from "./modules/main-page/main-page.module";
-import {ContactAddModule} from "./modules/contact-add/contact-add.module";
-import {ContactsListModule} from "./modules/contacts-list/contacts-list.module";
-import {ContactModule} from "./modules/contact/contact.module";
 import {CoreModule} from "./modules/core/core.module";
-import {NzLayoutModule} from "ng-zorro-antd/layout";
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {UsersState} from "./modules/contacts-list/store/users.state";
+import {NgxsModule} from "@ngxs/store";
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import {NgxsStoragePluginModule} from "@ngxs/storage-plugin";
+import {NgxsFormPluginModule} from "@ngxs/form-plugin";
 
 registerLocaleData(en);
 
@@ -26,21 +25,21 @@ registerLocaleData(en);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
     BrowserAnimationsModule,
-    NotFoundModule,
-    MainPageModule,
-    ContactsListModule,
-    ContactAddModule,
-    ContactModule,
+    HttpClientModule,
     CoreModule,
-    NzLayoutModule,
-
+    NzIconModule.forRoot([]),
+    NgxsModule.forRoot([UsersState]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsFormPluginModule.forRoot(),
+    NgxsStoragePluginModule.forRoot({
+      key: [UsersState],
+    }),
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule { }
