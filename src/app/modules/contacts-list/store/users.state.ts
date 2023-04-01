@@ -1,17 +1,10 @@
-import {FormStateModel, User, UserData} from "../../../types/types";
 import {Injectable, NgZone} from "@angular/core";
 import {Router} from "@angular/router";
 import {Action, Selector, State, StateContext, Store} from "@ngxs/store";
 import * as UsersActions from './users.actions';
 import {catchError, tap, throwError} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-
-export interface UsersStateModel {
-  users: User[];
-  user: User | null;
-  userForm: FormStateModel<Partial<User>>;
-  total: number;
-}
+import {UserData, UsersStateModel} from "../../shared/types/types";
 
 const usersInitialState: UsersStateModel = {
   users: [],
@@ -24,7 +17,6 @@ const usersInitialState: UsersStateModel = {
   },
   total: 0,
 };
-
 
 @State({
   name: 'usersState',
@@ -82,5 +74,29 @@ export class UsersState {
       users: payload.data,
       total: payload.total
     });
+  }
+
+  @Action(UsersActions.DeleteUser)
+  public deleteUser(
+    { getState, patchState, setState }: StateContext<UsersStateModel>,
+    { id }: UsersActions.DeleteUser
+  ) {
+    setState((state) => ({
+      ...state,
+      users: state.users.filter((user) => user.id !== id),
+      total: state.total - 1,
+    }));
+  }
+
+  @Action(UsersActions.AddUser)
+  public addUser(
+    { getState, patchState, setState }: StateContext<UsersStateModel>,
+    { payload }: UsersActions.AddUser
+  ) {
+    setState((state) => ({
+      ...state,
+      users: [payload, ...state.users],
+      total: state.total + 1,
+    }));
   }
 }

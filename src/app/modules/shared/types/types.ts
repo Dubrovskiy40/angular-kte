@@ -1,3 +1,5 @@
+import {FormControl} from "@angular/forms";
+
 export interface User {
   id: number;
   email: string;
@@ -23,4 +25,18 @@ export interface FormStateModel<T> {
   dirty: boolean;
   status: string;
   errors: string[];
+}
+
+export interface UserForm {
+  email: FormControl<string>;
+  first_name: FormControl<string>;
+  last_name: FormControl<string>;
+  avatar: FormControl<string>;
+}
+
+export interface UsersStateModel {
+  users: User[];
+  user: User | null;
+  userForm: FormStateModel<Partial<User>>;
+  total: number;
 }
