@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User, UserForm} from "../shared/types/types";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ResetForm} from "@ngxs/form-plugin";
@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
   templateUrl: './contact-add.component.html',
   styleUrls: ['./contact-add.component.scss']
 })
-export class ContactAddComponent implements OnDestroy{
+export class ContactAddComponent implements OnInit, OnDestroy{
   public userForm: FormGroup<UserForm>;
   private total!: number;
 
@@ -24,7 +24,12 @@ export class ContactAddComponent implements OnDestroy{
     private readonly router: Router,
     ) {
     this.userForm = this.buildForm();
-    this.store.select(UsersState.total).pipe(untilDestroyed(this)).subscribe((total) => this.total = total);
+  }
+
+  public ngOnInit() {
+    this.store.select(UsersState.total)
+      .pipe(untilDestroyed(this))
+      .subscribe((total) => this.total = total);
   }
 
   public get formValue(): User {

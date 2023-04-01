@@ -9,8 +9,7 @@ export class RequiredFieldDirective implements OnInit {
 
   constructor(
     private readonly elementRef: ElementRef,
-  ) {
-  }
+  ) {}
 
   public ngOnInit() {
     const el = this.elementRef.nativeElement as HTMLElement;

@@ -1,5 +1,7 @@
 <app-header></app-header>
-<h2 class="container">У нас в списке {{ usersTotal$ | async }} контактов</h2>
+<div class="container">
+  <h2 class="title">У нас в списке {{ usersTotal$ | async }} контактов</h2>
+</div>
 <app-content class="page-content">
   <router-outlet></router-outlet>
 </app-content>

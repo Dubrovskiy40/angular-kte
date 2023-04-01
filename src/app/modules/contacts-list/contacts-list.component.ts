@@ -29,7 +29,10 @@ export class ContactsListComponent {
       nzComponentParams: {
         userId: id,
       },
-      nzStyle: { width: '100%', maxWidth: '650px' },
+      nzStyle: {
+        width: '100%',
+        maxWidth: '650px',
+      },
     })
   }
 
@@ -40,6 +43,9 @@ export class ContactsListComponent {
       nzCancelText: 'Нет',
       nzOnOk: () => true,
     })
-      .afterClose.subscribe((result) => result && this.store.dispatch(new  DeleteUser(id)));
+      .afterClose
+      .subscribe((result) =>
+        result && this.store.dispatch(new  DeleteUser(id)),
+      );
   }
 }

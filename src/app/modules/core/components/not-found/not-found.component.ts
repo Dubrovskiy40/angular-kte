@@ -9,9 +9,7 @@ import {Router} from "@angular/router";
 export class NotFoundComponent {
   constructor(
     private readonly router: Router,
-  ) {
-  }
-
+  ) {}
 
   public redirectToMain() {
     void this.router.navigate(['/', 'contacts']);

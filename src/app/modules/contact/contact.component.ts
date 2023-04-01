@@ -13,12 +13,10 @@ import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 export class ContactComponent implements OnInit {
   @Input() public userId!: number;
   public currentContact!: User;
-  public isVisible = false;
 
   constructor(
     private readonly store: Store,
-  ) {
-  }
+  ) {}
 
   public ngOnInit() {
     this.store.select(UsersState.users)

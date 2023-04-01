@@ -11,8 +11,7 @@ import {LoadUsersList} from "./modules/contacts-list/store/users.actions";
 export class AppComponent implements OnInit {
   public usersTotal$ = this.store.select(UsersState.total);
 
-  constructor(private readonly store: Store) {
-  }
+  constructor(private readonly store: Store) {}
 
   public ngOnInit() {
     this.getNewContactsList();
