@@ -1,0 +1,17 @@
+.user-form {
+  width: 80%;
+
+  &__element {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__button-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+}
