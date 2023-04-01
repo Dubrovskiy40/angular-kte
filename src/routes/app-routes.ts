@@ -9,11 +9,6 @@ export const routes: Routes = [
       .then((module) => module.ContactsListModule),
   },
   {
-    path: 'contact',
-    loadChildren: () => import('../app/modules/contact/contact.module')
-      .then((module) => module.ContactModule),
-  },
-  {
     path: 'add',
     loadChildren: () => import('../app/modules/contact-add/contact-add.module')
       .then((module) => module.ContactAddModule),

@@ -1,5 +1,14 @@
-//@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.css";
 @import "../node_modules/normalize.css";
 @import "./scss/fonts";
 @import "./scss/colors";
 @import "./scss/mixins";
+
+body {
+  background-color: azure;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
