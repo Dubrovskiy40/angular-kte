@@ -1,7 +1,24 @@
-<section class="header">
-  <a class="header__container" [routerLink]="['/']">
-    <span nz-icon nzType="github" nzTheme="outline" style="font-size: 32px;"></span>
-  </a>
+<section class="header container">
+  <div>
+    <a class="header__container" [routerLink]="['/']">
+      <span nz-icon nzType="github" nzTheme="outline" style="font-size: 32px; color: black;"></span>
+    </a>
+  </div>
+
+  <ul class="header__list">
+    <li
+      class="header__item"
+      *ngFor="let item of menuItems"
+    >
+      <a class="header__link"
+         [routerLink]="item.routerLink"
+         routerLinkActive="header__link-active"
+      >
+        <span nz-icon nzType="{{item.iconType}}" nzTheme="outline" style="font-size: 16px;"></span>
+        <span>{{item.name}}</span>
+      </a>
+    </li>
+  </ul>
 </section>
 
 

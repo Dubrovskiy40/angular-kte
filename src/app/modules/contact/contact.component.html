@@ -1,1 +1,38 @@
-<p>contact works!</p>
+<div *nzModalTitle>Подробное описание контакта*</div>
+<div class="user-details">
+  <div>
+    <img class="user-details__img" src="{{currentContact.avatar}}" alt="user">
+  </div>
+  <h2 class="user-details__name">Меня зовут: {{currentContact.first_name}} {{currentContact.last_name}}</h2>
+  <span class="user-details__description"><b>Почта для связи со мной:</b> {{currentContact.email}}</span>
+  <span class="user-details__id">
+    <b>
+      На этот номер можно не обращать внимания, он нужет только разработчикам...
+      <span nz-icon nzType="smile" nzTheme="outline"></span>
+    </b>
+    {{currentContact.id}}
+  </span>
+  <div class="user-details__info">
+    <h3>Немного рыбы... и латыни</h3>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus debitis eligendi enim harum in inventore
+      laudantium magnam magni odio provident quis quisquam ratione repellendus reprehenderit tenetur, ut velit veniam,
+      voluptates?
+    </div>
+    <div>Ab adipisci animi architecto atque deserunt, dicta distinctio ea error est excepturi expedita fuga laboriosam
+      laborum libero maiores minus necessitatibus nobis non nostrum officia optio porro possimus saepe ullam,
+      voluptatibus.
+    </div>
+    <div>Accusantium assumenda atque enim esse excepturi facilis hic quaerat vitae. Ab aliquid animi assumenda atque
+      eligendi incidunt, minus neque nobis officia optio praesentium quos ratione recusandae reiciendis, vitae. Magni,
+      odit.
+    </div>
+    <div>Consequatur iure laboriosam laborum natus nemo, quaerat quisquam veritatis. Accusantium alias, asperiores
+      consequuntur corporis eaque eius explicabo inventore, ipsa ipsam magni non nostrum quia repellat. Aliquid error
+      excepturi optio voluptate?
+    </div>
+    <div>Ab ad amet asperiores consectetur deserunt eius eum, hic, odio officia officiis porro, possimus quo sapiente
+      suscipit voluptatem? Beatae eius exercitationem expedita itaque magnam maxime odit quod temporibus veritatis
+      voluptatem!
+    </div>
+  </div>
+</div>

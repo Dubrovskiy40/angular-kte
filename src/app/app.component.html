@@ -1,6 +1,6 @@
 <app-header></app-header>
-<main class="page-container">
-  <app-sidenav>
-    <router-outlet></router-outlet>
-  </app-sidenav>
-</main>
+<h2 class="container">У нас в списке {{ usersTotal$ | async }} контактов</h2>
+<app-content class="page-content">
+  <router-outlet></router-outlet>
+</app-content>
+

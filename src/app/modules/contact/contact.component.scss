@@ -1,0 +1,12 @@
+.user-details {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    height: 200px;
+  }
+
+  &__id {
+    margin-bottom: 20px;
+  }
+}

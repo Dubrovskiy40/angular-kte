@@ -1,10 +1,20 @@
-<ul>
-  <li *ngFor="let user of usersList$ | async">
-    <div>
-      <img src="{{user.avatar}}" alt="user">
+<ul class="users">
+  <li class="user" *ngFor="let user of usersList$ | async">
+    <img class="user__img" src="{{user.avatar}}" alt="user">
+    <div class="user__content">
+      <h3 class="user__name">{{user.first_name}} {{user.last_name}}</h3>
+      <span class="user__description">{{user.email}}</span>
+      <span class="user__id">{{user.id}}</span>
+      <div class="user__button-wrap">
+        <button class="user__button" nz-button nzType="primary" (click)="openContact(user.id)">
+          <span nz-icon nzType="drag" nzTheme="outline"></span>
+          Подробнее
+        </button>
+        <button class="user__button" nz-button nzType="default" (click)="deleteContact(user.id)">
+          <span nz-icon nzType="delete" nzTheme="outline"></span>
+          Удалить контакт
+        </button>
+      </div>
     </div>
-    <h3>{{user.first_name}} {{user.last_name}}</h3>
-    <a href="">{{user.email}}</a>
-    <span>{{user.id}}</span>
   </li>
 </ul>
